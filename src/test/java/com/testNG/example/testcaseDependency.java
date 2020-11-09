@@ -45,7 +45,7 @@ public class testcaseDependency {
 		//set wait
 		driver.manage().timeouts().implicitlyWait(15,TimeUnit.SECONDS);
 		
-		Assert.assertTrue(driver.findElement(By.xpath("//a[text()='Log out']")).equals("Log out"), "Log in successful");
+		//Assert.assertTrue(driver.findElement(By.xpath("//a[text()='Log out']")).equals("Log out"), "Log in successful");
 	}
 	
 	@Test (dependsOnMethods ="doLogin" )
@@ -55,4 +55,9 @@ public class testcaseDependency {
 		driver.findElement(By.xpath("//a[text()='Log out']")).click();
 			System.out.println("Logout App");
 	}
+	
+	/*@Test(dependsOnMethods = "doLogout")
+	public void teardownEnvironment(){
+		driver.close();
+	}*/
 }
